@@ -292,7 +292,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
             console.log(object);
 
-            postData('sttp://localhost:3000/requests', JSON.stringify(object))
+            postData('http://localhost:3000/requests', JSON.stringify(object))
                 .then(data => {
                     console.log(data);
                     showThanksModal(message.success);
