@@ -207,6 +207,13 @@ window.addEventListener('DOMContentLoaded', () => {
         return await res.json();
     };
 
+    getResource('http://localhost:3000/menu')
+        .then(data => {
+            data.forEach(({ img, altimg, title, descr, price }) => {
+                new MenuCard(img, altimg, title, descr, price).render();
+            });
+        });
+
     new MenuCard(
         "img/tabs/fitness.jpg",
         "fitness",
