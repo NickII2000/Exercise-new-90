@@ -250,14 +250,18 @@ window.addEventListener('DOMContentLoaded', () => {
 
     // Ex. 90
 
-    const postData = (url, data) => {
-        const res = fetch(url, {
+    const postData = async (url, data) => {
+        const res = await fetch(url, {
             method: 'POST',
             headers: {
                 'Content-type': 'application/json'
             },
             body: data,
         });
+
+        return await res.json();
+        // response.text() – читает ответ и возвращает как обычный текст 
+        // response.json() – декодирует ответ в формате JSON
     };
 
     function bindPostData(form) {
