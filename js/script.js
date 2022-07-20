@@ -258,10 +258,9 @@ window.addEventListener('DOMContentLoaded', () => {
             },
             body: data,
         });
-
-        return await res.json();
         // response.text() – читает ответ и возвращает как обычный текст 
         // response.json() – декодирует ответ в формате JSON
+        return await res.json();
     };
 
     function bindPostData(form) {
@@ -293,13 +292,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
             console.log(object);
 
-            fetch('server.php', {
-                method: 'POST',
-                headers: {
-                    'Content-type': 'application/json'
-                },
-                body: JSON.stringify(object),
-            })
+            postData('server.php', JSON.stringify(object))
                 .then(data => data.text())
                 .then(data => {
                     console.log(data);
