@@ -285,14 +285,21 @@ window.addEventListener('DOMContentLoaded', () => {
                 console.log(`item = ${item}, i = ${i}, arr = ${arr})`);
             });
 
-            const object = {};
-            formData.forEach(function (value, key) {
-                object[key] = value;
-            });
+            // const object = {};
+            // formData.forEach(function (value, key) {
+            //     object[key] = value;
+            // });
+
+            const json = JSON.stringify(Object.fromEntries(formData.entries()));
+
+            // пример: 
+            // const obj = { a: 23, b: 50 };
+            // console.log(Object.entries(obj));
+            // console.log(Object.fromEntries(Object.entries(obj)));
 
             console.log(object);
 
-            postData('http://localhost:3000/requests', JSON.stringify(object))
+            postData('http://localhost:3000/requests', json)
                 .then(data => {
                     console.log(data);
                     showThanksModal(message.success);
