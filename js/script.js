@@ -292,8 +292,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
             console.log(object);
 
-            postData('server.php', JSON.stringify(object))
-                .then(data => data.text())
+            postData('sttp://localhost:3000/requests', JSON.stringify(object))
                 .then(data => {
                     console.log(data);
                     showThanksModal(message.success);
