@@ -245,10 +245,22 @@ window.addEventListener('DOMContentLoaded', () => {
     console.log(forms.length);
 
     forms.forEach(item => {
-        postData(item);
+        bindPostData(item);
     });
 
-    function postData(form) {
+    // Ex. 90
+
+    const postData = (url, data) => {
+        const res = fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-type': 'application/json'
+            },
+            body: data,
+        });
+    };
+
+    function bindPostData(form) {
         form.addEventListener('submit', (e) => {
             e.preventDefault();
 
