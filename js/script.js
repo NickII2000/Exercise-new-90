@@ -289,15 +289,14 @@ window.addEventListener('DOMContentLoaded', () => {
             // formData.forEach(function (value, key) {
             //     object[key] = value;
             // });
-
-            const json = JSON.stringify(Object.fromEntries(formData.entries()));
+            // console.log(object);
 
             // пример: 
             // const obj = { a: 23, b: 50 };
             // console.log(Object.entries(obj));
             // console.log(Object.fromEntries(Object.entries(obj)));
 
-            console.log(object);
+            const json = JSON.stringify(Object.fromEntries(formData.entries()));
 
             postData('http://localhost:3000/requests', json)
                 .then(data => {
